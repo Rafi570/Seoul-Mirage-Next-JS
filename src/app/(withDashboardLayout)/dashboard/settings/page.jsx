@@ -42,7 +42,7 @@ const SettingsPage = () => {
         if (currentUser?.email) {
           try {
             const res = await axiosInstance.get(
-              `/api/auth/role?email=${currentUser.email}`
+              `/api/auth/role?email=${currentUser.email}`,
             );
             if (res.data.role === "admin") {
               setIsAdmin(true);
@@ -75,20 +75,17 @@ const SettingsPage = () => {
       return Swal.fire(
         "Error",
         "Password must be at least 6 characters",
-        "warning"
+        "warning",
       );
     }
 
     setSubmitting(true);
     try {
-      const response = await axiosInstance.patch(
-        "/api/auth/change-password",
-        {
-          email: currentUser.email,
-          oldPassword: passData.oldPassword,
-          newPassword: passData.newPassword,
-        }
-      );
+      const response = await axiosInstance.patch("/api/auth/change-password", {
+        email: currentUser.email,
+        oldPassword: passData.oldPassword,
+        newPassword: passData.newPassword,
+      });
 
       if (response.data.success) {
         Swal.fire("Success", "Password updated successfully!", "success");
@@ -98,7 +95,7 @@ const SettingsPage = () => {
       Swal.fire(
         "Failed",
         error.response?.data?.message || "Something went wrong",
-        "error"
+        "error",
       );
     } finally {
       setSubmitting(false);
@@ -117,7 +114,7 @@ const SettingsPage = () => {
     <div className="max-w-4xl space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700 pb-10">
       {/* Header */}
       <div className="text-left bg-white p-8 border border-gray-100 shadow-sm">
-        <h2 className="text-2xl font-black italic uppercase tracking-tighter flex items-center gap-3">
+        <h2 className="text-2xl font-black   uppercase tracking-tighter flex items-center gap-3">
           <Lock size={28} strokeWidth={2.5} /> Security Settings
         </h2>
         <p className="text-[10px] text-[#A38A6F] font-bold uppercase tracking-[0.2em] mt-1">

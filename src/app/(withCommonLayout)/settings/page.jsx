@@ -73,7 +73,7 @@ const UserSettingsPage = () => {
     <div className="max-w-6xl mx-auto py-10 px-6 md:px-12 text-left animate-in fade-in duration-700">
       {/* Header Section */}
       <div className="mb-10">
-        <h1 className="text-2xl font-black text-gray-800 tracking-tight italic uppercase">
+        <h1 className="text-2xl font-black text-gray-800 tracking-tight   uppercase">
           Account Settings
         </h1>
         <div className="h-1 w-12 bg-[#CCAF91] mt-2"></div>
@@ -87,14 +87,18 @@ const UserSettingsPage = () => {
               <UserIcon size={32} className="text-gray-300" />
             </div>
             <div>
-              <h3 className="text-lg font-black text-gray-900 italic uppercase">{user?.name || "Member"}</h3>
+              <h3 className="text-lg font-black text-gray-900   uppercase">
+                {user?.name || "Member"}
+              </h3>
               <p className="text-[9px] font-black uppercase tracking-[0.3em] text-[#CCAF91] mt-1">
                 Verified Member
               </p>
             </div>
             <div className="w-full pt-6 border-t border-gray-50 mt-4 text-left">
-              <span className="text-[10px] font-black uppercase tracking-widest text-gray-400 block mb-1">Email Address</span>
-              <p className="text-xs font-bold text-gray-800 break-all bg-gray-50 p-3 border border-gray-100 italic">
+              <span className="text-[10px] font-black uppercase tracking-widest text-gray-400 block mb-1">
+                Email Address
+              </span>
+              <p className="text-xs font-bold text-gray-800 break-all bg-gray-50 p-3 border border-gray-100  ">
                 {user?.email}
               </p>
             </div>
@@ -105,7 +109,7 @@ const UserSettingsPage = () => {
         <div className="lg:col-span-2 bg-white border border-gray-100 p-8 md:p-10 rounded-sm shadow-sm relative overflow-hidden">
           <div className="flex items-center gap-3 mb-8 border-b border-gray-50 pb-5">
             <ShieldCheck size={20} className="text-[#884D5D]" />
-            <h2 className="text-xs font-black uppercase tracking-[0.2em] text-gray-800 italic">
+            <h2 className="text-xs font-black uppercase tracking-[0.2em] text-gray-800  ">
               Security & Password
             </h2>
           </div>
@@ -113,7 +117,7 @@ const UserSettingsPage = () => {
           <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
             {/* Current Password */}
             <div className="space-y-2">
-              <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 italic">
+              <label className="text-[10px] font-black uppercase tracking-widest text-gray-400  ">
                 Current Password
               </label>
               <div className="relative">
@@ -128,7 +132,9 @@ const UserSettingsPage = () => {
                 />
                 <button
                   type="button"
-                  onClick={() => setShowPass({ ...showPass, old: !showPass.old })}
+                  onClick={() =>
+                    setShowPass({ ...showPass, old: !showPass.old })
+                  }
                   className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-300 hover:text-black"
                 >
                   {showPass.old ? <EyeOff size={16} /> : <Eye size={16} />}
@@ -139,7 +145,9 @@ const UserSettingsPage = () => {
             {/* Password Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 italic">New Password</label>
+                <label className="text-[10px] font-black uppercase tracking-widest text-gray-400  ">
+                  New Password
+                </label>
                 <input
                   type={showPass.new ? "text" : "password"}
                   name="newPassword"
@@ -151,7 +159,9 @@ const UserSettingsPage = () => {
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 italic">Confirm New Password</label>
+                <label className="text-[10px] font-black uppercase tracking-widest text-gray-400  ">
+                  Confirm New Password
+                </label>
                 <div className="relative">
                   <input
                     type={showPass.new ? "text" : "password"}
@@ -164,7 +174,9 @@ const UserSettingsPage = () => {
                   />
                   <button
                     type="button"
-                    onClick={() => setShowPass({ ...showPass, new: !showPass.new })}
+                    onClick={() =>
+                      setShowPass({ ...showPass, new: !showPass.new })
+                    }
                     className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-300 hover:text-black"
                   >
                     {showPass.new ? <EyeOff size={16} /> : <Eye size={16} />}
@@ -177,9 +189,13 @@ const UserSettingsPage = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full md:w-auto px-12 bg-black text-white py-4 text-[10px] font-black uppercase tracking-[0.3em] transition-all flex items-center justify-center gap-3 disabled:bg-gray-200 shadow-lg active:scale-95 italic"
+                className="w-full md:w-auto px-12 bg-black text-white py-4 text-[10px] font-black uppercase tracking-[0.3em] transition-all flex items-center justify-center gap-3 disabled:bg-gray-200 shadow-lg active:scale-95  "
               >
-                {loading ? <Loader2 className="animate-spin" size={16} /> : "Update Security Settings"}
+                {loading ? (
+                  <Loader2 className="animate-spin" size={16} />
+                ) : (
+                  "Update Security Settings"
+                )}
               </button>
             </div>
           </form>

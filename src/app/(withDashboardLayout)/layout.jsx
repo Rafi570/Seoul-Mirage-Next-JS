@@ -75,7 +75,7 @@ export default function DashboardLayout({ children }) {
                 className="object-contain"
               />
             </Link>
-            <h2 className="text-3xl font-serif italic text-[#333] text-center">
+            <h2 className="text-3xl font-serif   text-[#333] text-center">
               Seoul Mirage
             </h2>
             <p className="text-[10px] tracking-[0.3em] uppercase text-[#CCAF91] mt-2 font-black">
@@ -137,7 +137,7 @@ export default function DashboardLayout({ children }) {
             <h1 className="text-sm font-black uppercase tracking-[0.2em] text-gray-400">
               Dashboard
             </h1>
-            <p className="text-2xl font-black italic text-gray-900 mt-1 uppercase tracking-tighter">
+            <p className="text-2xl font-black   text-gray-900 mt-1 uppercase tracking-tighter">
               {navLinks.find((l) => l.path === pathname)?.name || "Overview"}
             </p>
           </div>

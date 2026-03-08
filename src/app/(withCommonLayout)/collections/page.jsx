@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import axios from "axios";
 import { ShoppingCart, Star } from "lucide-react";
-const API_BASE_URL = "https://seoul-sage.vercel.app"; 
+const API_BASE_URL = "https://seoul-sage.vercel.app";
 
 const Collections = () => {
   const [products, setProducts] = useState([]);
@@ -17,7 +17,9 @@ const Collections = () => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`${API_BASE_URL}/api/products?page=${currentPage}&limit=8`);
+        const res = await axios.get(
+          `${API_BASE_URL}/api/products?page=${currentPage}&limit=8`,
+        );
         const fetchedData = res.data.data || res.data;
         setProducts(fetchedData || []);
       } catch (err) {
@@ -34,7 +36,7 @@ const Collections = () => {
   if (loading)
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
-        <div className="animate-pulse text-[18px] font-medium italic text-gray-400">
+        <div className="animate-pulse text-[18px] font-medium   text-gray-400">
           Seoul Mirage...
         </div>
       </div>

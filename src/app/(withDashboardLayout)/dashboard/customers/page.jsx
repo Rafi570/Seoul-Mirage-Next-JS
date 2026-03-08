@@ -11,8 +11,8 @@ import {
   ShieldAlert,
   Users,
 } from "lucide-react";
-import { AuthContext } from "@/contexts/AuthContext"; 
-import { useRouter } from "next/navigation"; 
+import { AuthContext } from "@/contexts/AuthContext";
+import { useRouter } from "next/navigation";
 import useAxios from "@/hooks/useAxios";
 import Swal from "sweetalert2";
 import Image from "next/image";
@@ -131,7 +131,7 @@ const CustomersPage = () => {
       {/* Header with Search */}
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center bg-white p-6 md:p-10 border border-gray-100 shadow-sm gap-6">
         <div className="text-left">
-          <h2 className="text-2xl md:text-3xl font-black italic uppercase tracking-tighter flex items-center gap-3">
+          <h2 className="text-2xl md:text-3xl font-black   uppercase tracking-tighter flex items-center gap-3">
             <Users size={28} strokeWidth={3} /> User Directory
           </h2>
           <p className="text-[10px] text-[#A38A6F] font-bold uppercase tracking-[0.2em] mt-1">
