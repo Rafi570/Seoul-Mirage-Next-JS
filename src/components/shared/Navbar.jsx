@@ -203,7 +203,7 @@ export default function Navbar() {
                 <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-3 text-left">Quick Results</p>
                 <div className="max-h-80 overflow-y-auto space-y-4 pr-2">
                   {searchResults.map((item) => (
-                    <Link key={item._id} href={`/product/${item._id}`} onClick={() => { setIsSearchOpen(false); setSearchQuery(""); }} className="flex items-center gap-4 group text-left">
+                    <Link key={item._id} href={`/bestsellers/${item._id}`} onClick={() => { setIsSearchOpen(false); setSearchQuery(""); }} className="flex items-center gap-4 group text-left">
                       <div className="w-12 h-14 bg-slate-50 overflow-hidden rounded-sm flex-shrink-0 relative">
                         <Image src={item.mainImage} alt={item.name} fill className="object-cover group-hover:scale-110 transition-transform" />
                       </div>
