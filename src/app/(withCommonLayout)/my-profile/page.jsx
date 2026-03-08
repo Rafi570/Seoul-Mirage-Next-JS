@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
 import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "@/contexts/AuthContext"; // আপনার পাথ অনুযায়ী ঠিক করে নিন
 import useAxios from "@/hooks/useAxios";
-import { User as UserIcon, MapPin, Lock, Camera, Loader2 } from "lucide-react"; 
+import { User as UserIcon, MapPin, Lock, Camera, Loader2 } from "lucide-react";
 import Swal from "sweetalert2";
 import Link from "next/link";
 import Image from "next/image";
@@ -154,18 +154,26 @@ const MyProfile = () => {
             </button>
           </div>
 
-          <form onSubmit={handleUpdateProfile} className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
+          <form
+            onSubmit={handleUpdateProfile}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl"
+          >
             <div className="space-y-2">
-              <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">Full Name</label>
+              <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">
+                Full Name
+              </label>
               <input
                 type="text"
-
-                onChange={(e) => setProfileData({ ...profileData, name: e.target.value })}
+                onChange={(e) =>
+                  setProfileData({ ...profileData, name: e.target.value })
+                }
                 className={inputStyle}
               />
             </div>
             <div className="space-y-2">
-              <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">Email (Fixed)</label>
+              <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">
+                Email (Fixed)
+              </label>
               <input
                 type="email"
                 value={user?.email || ""}
@@ -174,11 +182,15 @@ const MyProfile = () => {
               />
             </div>
             <div className="space-y-2">
-              <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">Phone</label>
+              <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">
+                Phone
+              </label>
               <input
                 type="text"
                 value={profileData.phone}
-                onChange={(e) => setProfileData({ ...profileData, phone: e.target.value })}
+                onChange={(e) =>
+                  setProfileData({ ...profileData, phone: e.target.value })
+                }
                 className={inputStyle}
               />
             </div>
@@ -188,7 +200,10 @@ const MyProfile = () => {
                 disabled={loading.profile}
                 className="px-8 py-3 bg-black text-white text-[10px] font-black uppercase tracking-widest hover:bg-gray-800 transition-all flex items-center gap-2 shadow-lg"
               >
-                {loading.profile && <Loader2 size={12} className="animate-spin" />} Update Profile
+                {loading.profile && (
+                  <Loader2 size={12} className="animate-spin" />
+                )}{" "}
+                Update Profile
               </button>
             </div>
           </form>
@@ -201,49 +216,72 @@ const MyProfile = () => {
           </h2>
           <form onSubmit={handleUpdateAddress} className="space-y-6 max-w-4xl">
             <div className="space-y-2 text-left">
-              <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">Apartment, suite, etc.</label>
+              <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">
+                Apartment, suite, etc.
+              </label>
               <input
                 type="text"
                 value={addressData.apartment}
-                onChange={(e) => setAddressData({ ...addressData, apartment: e.target.value })}
+                onChange={(e) =>
+                  setAddressData({ ...addressData, apartment: e.target.value })
+                }
                 className={inputStyle}
               />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">City</label>
+                <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">
+                  City
+                </label>
                 <input
                   type="text"
                   value={addressData.city}
-                  onChange={(e) => setAddressData({ ...addressData, city: e.target.value })}
+                  onChange={(e) =>
+                    setAddressData({ ...addressData, city: e.target.value })
+                  }
                   className={inputStyle}
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">State/Province</label>
+                <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">
+                  State/Province
+                </label>
                 <input
                   type="text"
                   value={addressData.state}
-                  onChange={(e) => setAddressData({ ...addressData, state: e.target.value })}
+                  onChange={(e) =>
+                    setAddressData({ ...addressData, state: e.target.value })
+                  }
                   className={inputStyle}
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">Postal Code</label>
+                <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">
+                  Postal Code
+                </label>
                 <input
                   type="text"
                   value={addressData.postalCode}
-                  onChange={(e) => setAddressData({ ...addressData, postalCode: e.target.value })}
+                  onChange={(e) =>
+                    setAddressData({
+                      ...addressData,
+                      postalCode: e.target.value,
+                    })
+                  }
                   className={inputStyle}
                 />
               </div>
             </div>
             <div className="space-y-2 text-left">
-              <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">Country</label>
+              <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">
+                Country
+              </label>
               <input
                 type="text"
                 value={addressData.country}
-                onChange={(e) => setAddressData({ ...addressData, country: e.target.value })}
+                onChange={(e) =>
+                  setAddressData({ ...addressData, country: e.target.value })
+                }
                 className={inputStyle}
               />
             </div>
@@ -253,7 +291,10 @@ const MyProfile = () => {
                 disabled={loading.address}
                 className="px-8 py-3 bg-black text-white text-[10px] font-black uppercase tracking-widest hover:bg-gray-800 transition-all flex items-center gap-2 shadow-lg"
               >
-                {loading.address && <Loader2 size={12} className="animate-spin" />} Update Shipping Address
+                {loading.address && (
+                  <Loader2 size={12} className="animate-spin" />
+                )}{" "}
+                Update Shipping Address
               </button>
             </div>
           </form>
@@ -264,31 +305,46 @@ const MyProfile = () => {
           <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
             <Lock size={20} /> Change Password
           </h2>
-          <form onSubmit={handleChangePassword} className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
+          <form
+            onSubmit={handleChangePassword}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl"
+          >
             <div className="space-y-2 text-left">
-              <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">Current Password</label>
+              <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">
+                Current Password
+              </label>
               <input
                 type="password"
                 value={passData.oldPassword}
-                onChange={(e) => setPassData({ ...passData, oldPassword: e.target.value })}
+                onChange={(e) =>
+                  setPassData({ ...passData, oldPassword: e.target.value })
+                }
                 className={inputStyle}
               />
             </div>
             <div className="space-y-2 text-left">
-              <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">New Password</label>
+              <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">
+                New Password
+              </label>
               <input
                 type="password"
                 value={passData.newPassword}
-                onChange={(e) => setPassData({ ...passData, newPassword: e.target.value })}
+                onChange={(e) =>
+                  setPassData({ ...passData, newPassword: e.target.value })
+                }
                 className={inputStyle}
               />
             </div>
             <div className="space-y-2 text-left">
-              <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">Confirm Password</label>
+              <label className="text-[10px] font-black uppercase text-gray-500 tracking-widest">
+                Confirm Password
+              </label>
               <input
                 type="password"
                 value={passData.confirmPassword}
-                onChange={(e) => setPassData({ ...passData, confirmPassword: e.target.value })}
+                onChange={(e) =>
+                  setPassData({ ...passData, confirmPassword: e.target.value })
+                }
                 className={inputStyle}
               />
             </div>
@@ -298,7 +354,8 @@ const MyProfile = () => {
                 disabled={loading.pass}
                 className="px-8 py-3 bg-black text-white text-[10px] font-black uppercase tracking-widest hover:bg-gray-800 transition-all flex items-center gap-2 shadow-lg"
               >
-                {loading.pass && <Loader2 size={12} className="animate-spin" />} Change Password
+                {loading.pass && <Loader2 size={12} className="animate-spin" />}{" "}
+                Change Password
               </button>
             </div>
           </form>

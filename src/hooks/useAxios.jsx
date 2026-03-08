@@ -1,13 +1,12 @@
-import axios from 'axios';
-import React from 'react';
-
+import axios from "axios";
+import React from "react";
 
 const axiosInstance = axios.create({
-    baseURL: 'https://seoul-sage.vercel.app/'
-})
+  baseURL: "https://seoul-sage.vercel.app/",
+});
 
 const useAxios = () => {
-    return axiosInstance;
+  return axiosInstance;
 };
 
 export default useAxios;

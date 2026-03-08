@@ -19,9 +19,9 @@ import {
 } from "lucide-react";
 
 // Assets
-import logo from "@/assets/img/logo.png";
-import { AuthContext } from "@/contexts/AuthContext";
+import logo from "../../assets/img/logo.png";
 import axios from "axios";
+import { AuthContext } from "../../../src/contexts/AuthContext";
 
 const navLinks = [
   { name: "Skincare", href: "/#", hasDropdown: true },
@@ -174,7 +174,14 @@ export default function Navbar() {
                           <p className="text-xs font-bold truncate mt-1">{user.email}</p>
                         </div>
                         <Link href="/my-profile" onClick={() => setShowUserMenu(false)} className="flex items-center gap-3 px-4 py-2 text-sm font-bold text-slate-600 hover:bg-slate-50"><UserCircle size={16} /> My Profile</Link>
-                        {userRole === "admin" && <Link href="/dashboard" onClick={() => setShowUserMenu(false)} className="flex items-center gap-3 px-4 py-2 text-sm font-bold text-slate-600 hover:bg-slate-50"><LayoutDashboard size={16} /> Dashboard</Link>}
+                        
+                        {/* অ্যাডমিন হলে ড্যাশবোর্ড দেখাবে */}
+                        {userRole === "admin" && (
+                          <Link href="/dashboard" onClick={() => setShowUserMenu(false)} className="flex items-center gap-3 px-4 py-2 text-sm font-bold text-[#CCAF91] hover:bg-slate-50">
+                            <LayoutDashboard size={16} /> Dashboard
+                          </Link>
+                        )}
+
                         <Link href="/settings" onClick={() => setShowUserMenu(false)} className="flex items-center gap-3 px-4 py-2 text-sm font-bold text-slate-600 hover:bg-slate-50"><Settings size={16} /> Settings</Link>
                         <button onClick={handleLogout} className="w-full flex items-center gap-3 px-4 py-2 text-sm font-bold text-red-500 hover:bg-red-50 mt-2 border-t border-slate-50 pt-3"><LogOut size={16} /> Logout</button>
                       </div>
@@ -225,8 +232,15 @@ export default function Navbar() {
                 {link.name} {link.hasDropdown && <ChevronDown className="w-5 h-5 text-slate-400" />}
               </Link>
             ))}
+            
+            {/* মোবাইল মেনুতে ড্যাশবোর্ড */}
+            {userRole === "admin" && (
+              <Link href="/dashboard" onClick={() => setIsOpen(false)} className="text-xl font-bold text-[#CCAF91] border-b border-slate-50 pb-3 flex justify-between items-center group">
+                Dashboard <LayoutDashboard className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              </Link>
+            )}
+
             {user && <Link href="/my-profile" onClick={() => setIsOpen(false)} className="text-xl font-bold text-slate-900 border-b border-slate-50 pb-3 flex justify-between items-center">My Profile <UserCircle className="w-5 h-5 text-slate-400" /></Link>}
-            {userRole === "admin" && <Link href="/dashboard" onClick={() => setIsOpen(false)} className="text-xl font-bold text-[#CCAF91] border-b border-slate-50 pb-3">Dashboard</Link>}
             <Link href="/settings" onClick={() => setIsOpen(false)} className="text-xl font-bold text-slate-600 border-b border-slate-50 pb-3">Settings</Link>
           </div>
           <div className="mt-auto pt-8 border-t border-slate-50">
