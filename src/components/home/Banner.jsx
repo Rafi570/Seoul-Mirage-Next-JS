@@ -3,11 +3,6 @@
 import * as React from "react"
 import Image from "next/image"
 import Autoplay from "embla-carousel-autoplay"
-
-
-
-
-// Assets
 import banner1 from '../../assets/img/banner1.png'
 import banner2 from '../../assets/img/banner2.png'
 import banner3 from '../../assets/img/banner3.png'
